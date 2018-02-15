@@ -1,91 +1,61 @@
+import java.util.*;
 /*
-Using names.txt (right click and 'Save Link/Target As...'), 
-a 46K text file containing over five-thousand first names, 
-begin by sorting it into alphabetical order. 
-Then working out the alphabetical value for each name, 
-multiply this value by its alphabetical position in the list to obtain a name score.
 
-For example, when the list is sorted into alphabetical order, 
-COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. 
-So, COLIN would obtain a score of 938 × 53 = 49714.
+A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. 
+For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
+A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.
+As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. 
+By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. 
+However, this upper limit cannot be reduced any further by analysis even though it is known 
+that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.
+Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
-What is the total of all the name scores in the file?
-"HAI","ELDEN","DORSEY","DARELL","BRODERICK","ALONSO"
  */
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
+public class Problem_023{
+	//	static List<Integer> list = new ArrayList<Integer>(); 
 
+	private static final int LIMIT = 28123;  
+	private static final List<Integer> list = new ArrayList<>();  
+	private static final boolean[] isAbundantSum = new boolean[LIMIT+1];  
 
-public class Problem_23 {
-
-
-	public static void main(String[] args)throws IOException
-	{
-		String filePath = "names.txt";
-		String a[] = FileToStrArray(filePath);
-		Arrays.sort(a);//sorting the array
-		long sum = 0l;
-
-
-
-		//calculating score    
-		for(int i =0 ; i < a.length ; i++)
-		{ a[i] = a[i].replaceAll("\"","" ); //removing " " from each name.
-		int NameSum =0; 
-		for(int j = 0; j< a[i].length() ; j++)
-		{
-			NameSum += (a[i].charAt(j)-64);
-		}
-		NameSum =NameSum*(i+1);
-		sum +=NameSum;
-		}
-
-		System.out.println(sum); 
-
-	}
-
-
-	//function to store the names in a string array.
-	public static String[] FileToStrArray(String  filePath)throws IOException 
-	{
-		String names[] ={null};
-		String S;
-		int size = 0;
-		try {
-			FileReader fr = new FileReader(filePath);
-			BufferedReader br = new BufferedReader(fr);
-			FileReader fr2 = new FileReader(filePath);
-			BufferedReader br2 = new BufferedReader(fr2);
-
-
-			while((S=br.readLine())!=null)
-			{
-				for(int i = 0 ; i < S.length() ; i++)
-				{
-					if(S.charAt(i)== '"')
-						size++;
+	public static void main(String args[]) {
+		long start = System.currentTimeMillis(); 
+		for (int i=1; i<=LIMIT; i++) {
+			if (isAbundant(i)) {
+				list.add(i); 
+				for (int j : list) {
+					if(i+j <= LIMIT) {
+						isAbundantSum[i+j] = true; 
+					}
 				}
-				size =size/2;
 			}
-			names = new String[size];
-
-			while((S=br2.readLine())!=null)
-			{
-				names=S.split(",");
-			}
-
-
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-
-
-		return names;
+		int sum = 0; 
+		for (int i=0; i<isAbundantSum.length; i++) {
+			if(!isAbundantSum[i]) {
+				sum += i; 
+			}
+		}
+		long stop = System.currentTimeMillis(); 
+		System.out.println("Sum:  " + sum + "  Time used: " + (stop - start) + "ms");
 	}
+
+	private static int d(int number){  
+		int sum = 1;  
+		int sqrt = (int)Math.sqrt(number);  
+		for (int i=2; i<=sqrt; i++){  
+			if (number % i == 0){  
+				sum += (i + number / i);  
+			}  
+		}  
+		if (sqrt * sqrt == number){  
+			sum -= sqrt;  
+		}  
+		return sum;  
+	}  
+	private static boolean isAbundant(int number){  
+		return d(number) > number;  
+	}  
 }
+
