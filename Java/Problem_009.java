@@ -10,21 +10,19 @@ Find the product abc.
 import java.util.*;
 
 public class Problem_009{
-	
 	public static void main(String[] args) {
 		int sum = 1000; 
 		for(int i=1; i<sum; i++) {
 			for(int j=1; j<sum; j++) {
 				for(int k=1; k<sum; k++) {
 					if(isTriplet(i,j,k,sum))
-						System.out.println(i + "\n" +  j + "\n"+ k + "\n" + i*j*k);
-						
+						System.out.println("Answer: " + i*j*k);
+
 				}
 			}
 		}
-		System.out.println("fail");
 	}
-	
+
 	public static boolean isTriplet(int a, int b, int c, int sum) {
 		if(a*a+b*b==c*c && a+b+c==sum && a<b && b<c)
 			return true;
