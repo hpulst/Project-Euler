@@ -1,50 +1,35 @@
-/*
-A palindromic number reads the same both ways. The largest palindrome made 
-from the product of two 2-digit numbers is 9009 = 91 × 99.
-Find the largest palindrome made from the product of two 3-digit numbers.
-*/
-
-import java.util.*;
-
 public class Problem_004 {
+	public static void main(String [] args) {
+		long start = System.currentTimeMillis(); 
+		int m = 0;
 
-   public static void main(String args[]){
-	  System.out.println("Start");
-      System.out.println(isMax());
- 
-   }
-   
-   public static boolean isPalindrome(int value) {
-	   String original = String.valueOf(value);
-	   String reverse = ""; 
-	   int length = original.length();
-	     
-	   for ( int i = length - 1; i >= 0; i-- )
-		   reverse = reverse + original.charAt(i);
-	 
-	   if (original.equals(reverse))
-		   return true; 
-	   else 
-		   return false; 
-   }
-   
-   public static int isMax() {
-	   int a,b,prod,max = 0; 
-	   for (int i=0; i<=999; i++) {
-		   for (int j=0; j<=999; j++) {
-			   if(isPalindrome(i*j))
-				   if(i*j>max)
-					   max = i*j;
-		   }
-	   }
-	   return max; 
-   }
+		int a = 999; 
+		while (a>=100) {
+			int b = 999; 
+			while (b>=100) {
+				if (a*b <= m)
+					break; 
+				if (isEq(a*b))
+					m = a*b; 
+				b--;  
+			}
+			a--; 
+		}
+		
+		long stop = System.currentTimeMillis(); 
+		System.out.println(m);
+		System.out.println(stop - start + " ms");
+	}
+	
+	public static boolean isEq(int n) {
+		String s = String.valueOf(n);
+		String r = ""; 
+		boolean b = false; 
+		for (int i=s.length()-1; i>=0; i--) {
+			r = r + s.substring(i,i+1);
+		}
+		if (s.equals(r))
+				b = true; 
+		return b; 
+	}
 }
-
-/*    int l=0;
-    for (int n1=999;n1>=100;n1--)
-      for (int n2=999;n2>=100 && n1*n2>l;n2--)
-        if (String.valueOf(n1*n2).equals(new StringBuffer(String.valueOf(n1*n2)).reverse().toString()))
-          l=n1*n2;
-    System.out.println(l);
-*/
