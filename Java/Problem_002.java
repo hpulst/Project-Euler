@@ -1,23 +1,26 @@
-
 public class Problem_002 {
-	
-	public static void main(String[] args) {
-		System.out.println(counter()); 
-	}
-	
-	public static int  counter() {
-		int count = 0; 
-		for (int i=0; i<20000; i++) {
-			if (fibonacci(i)%2==0 && ((count + fibonacci(i)) < 400))
-				count += fibonacci(i);  
+	public static void main(String [] args) {
+		long start = System.currentTimeMillis(); 
+		long sum = 0; 
+		long n = 0; 
+		
+		int i = 1; 
+		while(n < 4000000) {
+			if (n%2==0)
+				sum += n; 
+			n = fib(i);
+			i++; 
 		}
-		return count; 
+		
+		long stop = System.currentTimeMillis(); 
+		System.out.println(sum);
+		System.out.println(stop - start + "ms");
 	}
 	
-	public static int fibonacci(int n) {
-		if(n==0 || n==1) 
-			return n;
-		return fibonacci(n-1)+ fibonacci(n-2);
+	public static long fib(int n) {
+		if(n<=2)
+			return 1; 
+		
+		return fib(n-1) + fib(n-2); 
 	}
 }
-
