@@ -1,20 +1,30 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.math.BigInteger;
-
-public class Problem_013 {
-	public static void main(String args[]) throws FileNotFoundException {
-		Scanner sc = new Scanner(new File("numbers.txt")).useDelimiter("[;\r\n]+");
-		BigInteger bi1 = BigInteger.valueOf(1);
-		BigInteger bi2 = BigInteger.valueOf(1);
-
-		while (sc.hasNextBigInteger()) {
-			bi1 = sc.nextBigInteger();
-			bi2 = bi2.add(bi1); 
-//			System.out.println(bi2);
+public class Problem_010 {
+	private static int l = 2000000; 
+	public static void main(String [] args) {
+		long start = System.currentTimeMillis(); 
+		long sum = 2; 
+		
+		for (int i=3; i < l; i=i+2) {
+			if(isPrim(i))
+				sum += i; 
 		}
-		sc.close(); 
-		System.out.println(bi2.toString().substring(0, 10));
+		
+		long stop = System.currentTimeMillis(); 
+		System.out.println("sum: " + sum );
+		System.out.println(stop - start + " ms");
+	}
+	
+	public static boolean isPrim(int n) {
+		boolean b = true; 
+		int i = 2; 
+		while(i<=Math.sqrt(n)) {
+			if(n%i==0) {
+				b = false; 
+				break; 
+			}
+			i++; 
+		}
+		return b; 
 	}
 }
+
