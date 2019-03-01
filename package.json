@@ -1,0 +1,31 @@
+{
+  "name": "project-euler",
+  "version": "1.0.0",
+    "jest": {
+    "verbose": true
+  },
+  "description": "testing test",
+  "main": "Problem_001.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naskapie/Project-Euler.git"
+  },
+  "keywords": [
+    "testing"
+  ],
+  "author": "hd",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Naskapie/Project-Euler/issues"
+  },
+  "homepage": "https://github.com/Naskapie/Project-Euler#readme",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
