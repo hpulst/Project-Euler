@@ -1,9 +1,6 @@
 {
   "name": "project-euler",
   "version": "1.0.0",
-    "jest": {
-    "verbose": true
-  },
   "description": "testing test",
   "main": "Problem_001.js",
   "directories": {
