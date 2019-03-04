@@ -14,18 +14,7 @@ for (var i = 1; i <= files.length; i++) {
     const correctAnswer = answers[`problem${i}`];
 
     test(`Your answer: ${solution} (${elapsedTime}ms)`, () => {
-      expect(correctAnswer).toEqual(solution);
+      expect(solution).toStrictEqual(correctAnswer);
     });
   });
 }
-
-// const sum = require("../JavaScript/001");
-// const fs = require('fs');
-// let fs = fs.readdirSync(`${__dirname}/../JavaScript`);
-
-// const sum = require("../JavaScript/001");
-// const answers = require("./answers");
-
-// test("adds 1 + 2 to equal 23", () => {
-//   expect(sum(1000)).toBe(233168)
-// });
