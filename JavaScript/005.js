@@ -4,20 +4,21 @@
 // What is the smallest number that is evenly divisible by all of the numbers
 // from 1 to 20?
 
-function noRemainder(top) {
-  var num = top;
-  while (true) {
-    var find = true;
-    for (var i = top; i > 1; i--) {
-      if (num % i !== 0) {
-        find = false;
+function noRemainder(n) {
+  let find = false,
+    m = n;
+  while (find == false) {
+    for (let i = 1; i <= n; i++) {
+      if (m % i !== 0) {
+        find == false;
         break;
       }
+      if (i === n) {
+        find = true;
+        return m;   
+      }
     }
-    if (find === true) {
-      return num;
-    }
-    num += top;
+    m++;
   }
 }
 
