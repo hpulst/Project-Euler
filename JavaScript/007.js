@@ -7,11 +7,6 @@ What is the 10001st prime number?
 Total: 8 min
 */
 
-
-
-
-
-
 function isPrim(n){
     let b = true;
     let j = 2; 
@@ -35,9 +30,5 @@ function countPrim(n){
     }
     return m;
 }
-
-
-
-
 
 module.exports = countPrim(10001) ; 
