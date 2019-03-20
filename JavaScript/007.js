@@ -7,28 +7,28 @@ What is the 10001st prime number?
 Total: 8 min
 */
 
-function isPrim(n){
+function isPrim(n) {
     let b = true;
-    let j = 2; 
-    while(j<=Math.sqrt(n)) {
-            if(n%j == 0) {
-                b = false; 
-                break; 
-            }
-            j++; 
+    let j = 2;
+    while (j <= Math.sqrt(n)) {
+        if (n % j == 0) {
+            b = false;
+            break;
+        }
+        j++;
     }
-    return b; 
+    return b;
 }
 
-function countPrim(n){
+function countPrim(n) {
     let count = 0,
-    m = 1; 
-    
-    while(count < n){
+        m = 1;
+
+    while (count < n) {
         m++;
-        if(isPrim(m)) count++;
+        if (isPrim(m)) count++;
     }
     return m;
 }
 
-module.exports = countPrim(10001) ; 
+module.exports = countPrim(10001); 

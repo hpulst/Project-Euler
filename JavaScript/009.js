@@ -13,16 +13,14 @@ Find the product abc.
 */
 
 
-function calculate() {
-    for (let a = 1; a < 334; a++) {
-        for (let b = a; b < 1000 - a; b++) {
-            let c = 1000 - a - b;
-
-            if (Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2)) {
-                return a * b * c;
+function calcHero() {
+    for (let i = 1; i < 334; i++) {
+        for (let j = i; j < 1000; j++) {
+            let k = 1000 - i - j;
+            if (Math.pow(i, 2) + Math.pow(j, 2) === Math.pow(k, 2)) {
+                return i * j * k;
             }
         }
     }
 }
-
-module.exports = calculate();
+module.exports = calcHero(); 

@@ -1,3 +1,15 @@
+/* 
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+Find the sum of all the primes below two million. 
+
+Sieve of Eratosthenes
+It does so by iteratively marking as composite 
+(i.e., not prime) the multiples of each prime, starting with the first prime number, 2. 
+The multiples of a given prime are generated as a sequence of numbers 
+starting from that prime, with constant difference between them that 
+is equal to that prime.
+*/
+
 // Prime Number to use as limit
 let limit = 2000000;
 
@@ -10,7 +22,8 @@ let primeNumbers = [];
 // Current prime
 let p = 2;
 
-// The biggest number we've gotta use to find its multiples is the floor of the square root of the number used as limit
+// The biggest number we've gotta use to find its multiples is the 
+// floor of the square root of the number used as limit
 let upperLimit = Math.floor(Math.sqrt(limit));
 
 while (p <= upperLimit) {
