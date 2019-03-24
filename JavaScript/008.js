@@ -7,8 +7,6 @@ const num = "7316717653133062491922511967442657474235534919493496983520312774506
 let max = 0;
 let o = 0;
 
-// zeros rausnehmen
-
 for (let i = 0; i + 13 < num.length; i++) {
     let n = 1;
     for (let j = 0; j < 13; j++) {

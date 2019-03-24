@@ -14,20 +14,28 @@ Find the difference between the sum of the squares of the first one
 hundred natural numbers and the square of the sum. 
 */
 
-function sumSquares(n){
-    let sum = 0; 
-    for(let i = 1; i <= n; i++){
-        sum += i * i; 
+function squareSum(n) {
+    var i, s = 1,
+        e = Math.log(n) / Math.LN10;
+    // special case: n is a power of 10
+    if (e - (e << 0) === 0) {
+        s = n * (n >> 1) + (n >> 1);
     }
-    return sum; 
+    else {
+        for (i = 2; i <= n; i += 1) {
+            s += i;
+        }
+    }
+    return s * s;
+
 }
 
-function sum(n){
-    let sum = 0; 
-    for(let i = 1; i <= n; i++){
-        sum += i; 
+function sumSquare(n) {
+    let i, sum = 0;
+    for (i = 1; i <= n; i++) {
+        sum += i * i;
     }
-    return sum*sum; 
+    return sum;
 }
 
-module.exports = sum(100) - sumSquares(100); 
+module.exports = squareSum(100) - sumSquare(100); 
