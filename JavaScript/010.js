@@ -1,17 +1,6 @@
 'use strict';
-/*
-Time 00:12:29.210
 
-The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
-Find the sum of all the primes below two million. 
-
-Sieve of Eratosthenes
-It does so by iteratively marking as composite 
-(i.e., not prime) the multiples of each prime, starting with the first prime number, 2. 
-The multiples of a given prime are generated as a sequence of numbers 
-starting from that prime, with constant difference between them that 
-is equal to that prime.
-*/
+//Time 00:12:29.210
 
 // Prime Number to use as limit
 let limit = 2000000;

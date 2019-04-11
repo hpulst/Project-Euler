@@ -1,15 +1,6 @@
+'use strict';
 
-/* 
-Time 01:18:44.363
-
-In the 20 * 20 grid below, four numbers along a diagonal line have been
-marked in red.
-
-The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
-
-What is the greatest product of four adjacent numbers in any direction
-(up, down, left, right, or diagonally) in the 20 * 20 grid? 
-*/
+// Time 00:38:11.649
 
 function gridCalc(){
     var answer = 0;
@@ -40,8 +31,8 @@ function gridCalc(){
         [ 1,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48]
     );
 
-    for ( i = 0; i <= rows; i++ ) {
-        for ( j = 0; j < columns; j++ ) {
+    for (let i = 0; i <= rows; i++ ) {
+        for (let j = 0; j < columns; j++ ) {
             if ( j < columns - 3) {
                 // Horizontal
                 product = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3];
