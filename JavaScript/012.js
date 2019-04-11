@@ -1,8 +1,7 @@
 'use strict';
 
-/* 
-Time 01:01:37.098
-*/
+//Time 01:01:37.098
+
 
 let sum = 1, t = 1, count = 0; 
 while (count<=500) {
