@@ -2,27 +2,6 @@
 
 // Time 00:11:13.341 all-time record
 
-// function noRemainder(n) {
-//   let find = false,
-//     m = n;
-//   while (find == false) {
-//     for (let i = 1; i <= n; i++) {
-//       if (m % i !== 0) {
-//         find == false;
-//         break;
-//       }
-//       if (i === n) {
-//         find = true;
-//         return m;   
-//       }
-//     }
-//     m++;
-//   }
-// }
-
-// module.exports = noRemainder(20);
-
-
 function smallestDivisible(limit) {
   var i, n = 1;
 
